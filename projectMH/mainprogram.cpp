@@ -12,6 +12,7 @@ public:
 	stack(int size = SIZE);
 	void push(int);
 	int pop();
+	int peek();
 	bool isEmpty();
 	bool isFull();
 };
@@ -41,6 +42,13 @@ int stack::pop()
 	cout << "Removing " << arr[top] << endl;
 	return arr[top--];
 }
+int stack::peek()
+{
+	if (!isEmpty())
+		cout<<arr[top]<<endl;
+	else
+		exit(EXIT_FAILURE);
+}
 bool stack::isEmpty()
 {
 	return top == -1;
@@ -58,6 +66,8 @@ int main()
 		cout<<"Press the Following Accordingly:"<<endl;
 			cout<<"1: PUSH"<<endl;
 			cout<<"2: POP"<<endl;
+			cout<<"3: PEEK"<<endl;
+
 			cin>>ch;
 		switch(ch)
 		{
@@ -68,6 +78,9 @@ int main()
 				break;
 			case 2:
 				s1.pop();
+				break;
+			case 3:
+				s1.peek();
 				break;
 		        default :
 				cout<<"Wrong Choice Entered"<<endl;
