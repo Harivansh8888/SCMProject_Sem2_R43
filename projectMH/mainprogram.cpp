@@ -15,6 +15,7 @@ public:
 	int peek();
 	bool isEmpty();
 	bool isFull();
+	void display();
 };
 stack::stack(int size)
 {
@@ -57,6 +58,20 @@ bool stack::isFull()
 {
 	return top == capacity - 1;
 }
+void stack::display()
+{
+	int i;
+	if(top==-1)
+	{
+	cout<<"Stack is empty!!"<<endl;
+	}
+	else
+	{
+	cout<<"Stack is: "<<endl;
+		for(i=top;i>=0;--i)
+			cout<<arr[i]<<endl;
+}
+}
 int main()
 {
 	stack s1;
@@ -81,6 +96,9 @@ int main()
 				break;
 			case 3:
 				s1.peek();
+				break;
+			case 4:
+				s1.display();
 				break;
 		        default :
 				cout<<"Wrong Choice Entered"<<endl;
