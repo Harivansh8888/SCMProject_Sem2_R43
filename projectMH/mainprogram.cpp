@@ -11,6 +11,7 @@ class stack
 public:
 	stack(int size = SIZE);
 	void push(int);
+	int pop();
 	bool isEmpty();
 	bool isFull();
 };
@@ -30,6 +31,16 @@ void stack::push(int x)
 	cout << "Inserting " << x << endl;
 	arr[++top] = x;
 }
+int stack::pop()
+{
+	if (isEmpty())
+	{
+		cout << "UnderFlow-------Program Terminated";
+		exit(EXIT_FAILURE);
+	}
+	cout << "Removing " << arr[top] << endl;
+	return arr[top--];
+}
 bool stack::isEmpty()
 {
 	return top == -1;
@@ -46,6 +57,7 @@ int main()
 	{
 		cout<<"Press the Following Accordingly:"<<endl;
 			cout<<"1: PUSH"<<endl;
+			cout<<"2: POP"<<endl;
 			cin>>ch;
 		switch(ch)
 		{
@@ -54,7 +66,10 @@ int main()
 				cin>>a;
 				s1.push(a);
 				break;
-		default :
+			case 2:
+				s1.pop();
+				break;
+		        default :
 				cout<<"Wrong Choice Entered"<<endl;
 				break;
 		}
