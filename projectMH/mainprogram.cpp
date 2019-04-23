@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <conio.h>
 using namespace std;
 #define SIZE 10
 class stack
@@ -70,8 +71,32 @@ void stack::display()
 	cout<<"Stack is: "<<endl;
 		for(i=top;i>=0;--i)
 			cout<<arr[i]<<endl;
+        }
 }
-}
+
+class Node
+{
+public:
+    int info;
+    Node* next;
+};
+class List:public Node
+{
+
+    Node *first,*last;
+public:
+    List()
+    {
+        first=NULL;
+        last=NULL;
+    }
+    void create();
+    void insert();
+    void delet();
+    void display();
+    void search();
+};
+
 int main()
 {
 	stack s1;
@@ -106,6 +131,7 @@ int main()
 		}
     }
     while(ch!=5);
+
     return 0;
 }
 
