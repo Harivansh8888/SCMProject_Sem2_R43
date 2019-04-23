@@ -88,6 +88,44 @@ class circular_llist
             last = NULL;
         }
 };
+/*
+ * Create Circular Link List
+ */
+void circular_llist::create_node(int value)
+{
+    struct node *temp;
+    temp = new(struct node);
+    temp->info = value;
+    if (last == NULL)
+    {
+        last = temp;
+        temp->next = last;   
+    }
+    else
+    {
+        temp->next = last->next; 
+        last->next = temp;
+        last = temp;
+    }
+}
+ 
+/*
+ * Insertion of element at beginning 
+ */
+void circular_llist::add_begin(int value)
+{
+    if (last == NULL)
+    {
+        cout<<"First Create the list."<<endl;
+        return;
+    }
+    struct node *temp;
+    temp = new(struct node);
+    temp->info = value;
+    temp->next = last->next;
+    last->next = temp;
+}
+ 
 
 int main()
 {
