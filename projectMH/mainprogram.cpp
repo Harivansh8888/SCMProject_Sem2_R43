@@ -234,6 +234,28 @@ void double_llist::delete_element(int value)
     cout<<"Element "<<value<<" not found"<<endl;
 }
  
+ 
+/*
+ * Display elements of Doubly Link List
+ */
+void double_llist::display_dlist()
+{
+    struct node *q;
+    if (start == NULL)
+    {
+        cout<<"List empty,nothing to display"<<endl;
+        return;
+    }
+    q = start;
+    cout<<"The Doubly Link List is :"<<endl;
+    while (q != NULL)
+    {
+        cout<<q->info<<" <-> ";
+        q = q->next;
+    }
+    cout<<"NULL"<<endl;
+}
+ 
 
 
 
