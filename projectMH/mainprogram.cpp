@@ -102,6 +102,30 @@ class double_llist
         }
 };
 
+/*
+ * Create Double Link List
+ */
+void double_llist::create_list(int value)
+{
+    struct node *s, *temp;
+    temp = new(struct node); 
+    temp->info = value;
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        temp->prev = NULL;
+        start = temp;
+    }
+    else
+    {
+        s = start;
+        while (s->next != NULL)
+            s = s->next;
+        s->next = temp;
+        temp->prev = s;
+    }
+}
+ 
 
 
 
