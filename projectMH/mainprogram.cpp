@@ -256,7 +256,42 @@ void double_llist::display_dlist()
     cout<<"NULL"<<endl;
 }
  
-
+ 
+/*
+ * Number of elements in Doubly Link List
+ */
+void double_llist::count()
+{ 	
+    struct node *q = start;
+    int cnt = 0;
+    while (q != NULL)
+    {
+        q = q->next;
+        cnt++;
+    }
+    cout<<"Number of elements are: "<<cnt<<endl;
+}
+ 
+/*
+ * Reverse Doubly Link List
+ */
+void double_llist::reverse()
+{
+    struct node *p1, *p2;
+    p1 = start;
+    p2 = p1->next;
+    p1->next = NULL;
+    p1->prev = p2;
+    while (p2 != NULL)
+    {
+        p2->prev = p2->next;
+        p2->next = p1;
+        p1 = p2;
+        p2 = p2->prev; 
+    }
+    start = p1;
+    cout<<"List Reversed"<<endl; 
+}
 
 
 int main()
